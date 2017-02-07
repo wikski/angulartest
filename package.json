@@ -1,0 +1,23 @@
+{
+  "name": "angulartest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "author": "braden wikohika",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.6.1",
+    "angular-messages": "^1.6.1",
+    "angular-mocks": "^1.6.1",
+    "angular-resource": "^1.6.1",
+    "angular-ui-router": "^0.4.2",
+    "body-parser": "^1.16.0",
+    "bootstrap": "^4.0.0-alpha.6",
+    "express": "^4.14.1",
+    "jasmine": "^2.5.3",
+    "karma": "^1.4.1",
+    "karma-jasmine": "^1.1.0",
+    "mongodb": "^2.2.22",
+    "mongoose": "^4.8.1"
+  }
+}

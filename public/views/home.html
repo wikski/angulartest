@@ -1,0 +1,47 @@
+<div class="p-3" ng-if="!vmHome.submitted">
+    <h1>Some Useful Government Service</h1>
+    <form name="fmUser" ng-submit="vmHome.handleForm(fmUser)" novalidate>
+        <div class="form-group">
+            <label for="name"><sup class="text-danger">*</sup>Name</label>
+            <input class="form-control" id="name" name="name" ng-model="vmHome.models.name" required type="text">
+        </div>
+        <div class="alert-danger mb-3" ng-if="fmUser.$submitted" ng-messages="fmUser.name.$error" role="alert">
+            <p class="mb-0 p-2" ng-message="required">Name is required</p>
+        </div>
+        <div><label><sup class="text-danger">*</sup>Sex</label></div>
+        <div class="form-check form-check-inline">            
+            <label class="form-check-label">
+                <input class="form-check-input" ng-model="vmHome.models.sex" name="sex" required type="radio" value="male">&nbsp;&nbsp;Male
+            </label>
+            <label class="form-check-label">
+                <input class="form-check-input" ng-model="vmHome.models.sex" name="sex" required type="radio" value="female">&nbsp;&nbsp;Female
+            </label>
+        </div>
+        <div class="alert-danger mb-3" ng-if="fmUser.$submitted" ng-messages="fmUser.sex.$error" role="alert">
+            <p class="mb-0 p-2" ng-message="required">Sex is required</p>
+        </div>
+        <div class="form-group">
+            <label for="age"><sup class="text-danger">*</sup>Age</label>
+            <input class="form-control" id="age" name="age" ng-model="vmHome.models.age" required type="number">
+        </div>
+        <div class="alert-danger mb-3" ng-if="fmUser.$submitted" ng-messages="fmUser.age.$error" role="alert">
+            <p class="mb-0 p-2" ng-message="required">Age is required</p>
+        </div>
+        <div class="form-group">
+            <label for="country"><sup class="text-danger">*</sup>Country</label>    
+            <select class="form-control" id="country" name="country" ng-model="vmHome.models.country" ng-options="item.name as item.name for item in vmHome.items" required>
+                <option disabled value="">Select country</option>
+            </select>
+        </div>
+        <div class="alert-danger mb-3" ng-if="fmUser.$submitted" ng-messages="fmUser.country.$error" role="alert">
+            <p class="mb-0 p-2" ng-message="required">Country is required</p>
+        </div>
+        <button class="btn btn-success" type="submit">Apply</button>
+    </form>
+</div>
+<div ng-if="vmHome.submitted">
+    <h1>Application complete</h1>
+    <p>{{ vmHome.models.name }} thank you for applying to this useful government service.</p>
+    <p><a class="btn btn-primary" href ng-click="vmHome.refresh()">Apply again</a></p>
+</div>
+<div class="overlay" ng-class="{'in':vmHome.loader}"><div ng-class="{'loader':vmHome.loader}"></div></div>
